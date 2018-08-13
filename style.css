@@ -1,0 +1,261 @@
+/*
+Theme Name: mypenandpantryv1;
+Author: mypenandpantry;
+Version: 1.0;
+*/
+:root{ --background: rgba( 137, 139, 136 ,1); }
+
+/* General Layout */
+div.container{
+	max-width: 80%;
+	margin:  0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	position: relative;
+	/*to display the content bit offset so that sticky part donot cover the contatiner part*/
+	top: 40px;
+}
+
+/*the below code controls teh view of the links in the whole page*/
+a:link,
+a:visited{
+	color: #006ec3;
+	text-decoration: none;
+}
+
+/*navigation style*/
+/*uncomment the border style to know the area or the box of each style container*/
+/*the .site-Header control the whole navigation bar that is <Header> tag*/
+.site-Header{
+	justify-content: center;
+	text-align: center;
+	position: sticky;
+	z-index: 999;
+	width: 100%;
+	left: 0;
+	top: 0;
+	/*border: 2px solid red;*/
+}
+
+/*the heading of the site*/
+.site-Header h1{
+	margin: 0;
+	margin-left: 10px;
+	text-align: left;
+	/*border: 2px solid red;*/
+	display: block;
+	padding: 20px 20px 40px 0;/*top, left, bottom, right*/
+	background: white;
+	/*white color is to just provide a color for opacity*/
+}
+
+.site-Header h5{
+	position: absolute;
+	top: 40%;
+	left: 0;
+	margin-left: 10px;
+	color: #BBB;
+}
+
+/*this contains the navigation menus like home blogs etc in it*/
+div.site-nav-container
+{
+	/*background is the variable here that controls the color of the navigation container*/
+	background: var(--background);
+	width: 100%;
+/*	border-top:  1px solid #BBB;
+	border-bottom: 1px solid #BBB;
+	box-shadow: */
+}
+
+/*apart from the .site-nav-container, .site-nav is included to design the naviagtion menu bar when the screen is in the mobile view format*/
+.site-nav{
+	background: var(--background);
+	width: 100%;
+	/*position is absolute with reference to the h1*/
+	position: absolute;
+	text-align: left;
+	top: 145%;/*100%+45% for the bars*/
+	left: 0;
+
+	/*transition effect*/
+	transform: scale(1,0);/*(width,height)*/
+	transform-origin: top;
+	transition: transform 400ms ease-in-out;
+}
+
+/*.site-nav ul problem with this is that it is of the total with that is equal to the .site-nav-container and .site-nav*/
+.site-nav ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.site-nav li{
+	margin-bottom: 1em;
+	margin-left: 1em;
+}
+
+.site-nav li:first-child{
+	margin-top: 1em;
+}
+
+.site-nav a:link,
+.site-nav a:visited{
+	display: block;
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	opacity: 0;
+	transition: opacity 150ms ease-in-out;
+}
+
+.site-nav a:hover{
+	color:  #000000;
+
+}
+
+/*the below .nav-toggle along with .nav-toggle-label and span controls the action of the three bars*/
+.nav-toggle{
+	display: none;
+}
+
+.nav-toggle-label{
+	position: absolute;
+	background: var(--background);
+	left:0;
+	height: 45%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+.nav-toggle-label span{
+	margin-left: 1em;
+}
+
+/*the below code is used to generate the three lines in which the top to bottom are before span,span and after span element respectively*/
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+	display: block;
+	background: #006ec3;
+	height: 3px;
+	width: 2em;
+	border-radius: 2px;
+	position: relative;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after{
+	content: '';
+	position: absolute;
+}
+
+.nav-toggle-label span::before{
+	bottom: 7px;
+}
+
+.nav-toggle-label span::after{
+	top:7px;
+}
+
+/*note the checked psuedo class is used to determine the behaviour of the check box when checked or unchecked*/
+.nav-toggle:checked ~ nav {
+	transform: scale(1,1);
+}
+
+.nav-toggle:checked ~ nav a{
+	opacity: 1;
+	transition: opacity 250ms ease-in-out 250ms;
+}
+
+/*the below code is used to make the site responsive */
+/*the below code is what shows when the window is in the full width*/
+@media screen and (min-width: 800px){
+
+	nav.social-nav{
+		position: absolute;
+		top: 15%;
+		right: 0;
+	}
+
+	nav.social-nav ul{
+		display: flex;
+		list-style: none;
+	}
+	div.container{
+		top: 0px;
+	}
+
+	.nav-toggle-label{
+		display: none;
+	}
+	.site-Header{
+		display: grid;
+		grid-template-columns: 1fr auto minmax(600px,1fr) 1fr;
+	}
+	.site-Header h1{
+		grid-column: 1/end;
+	}
+
+	.site-Header h5{
+		top: 30%;
+	}
+	.site-nav-container{
+		grid-column: 1/end;
+	}
+	.site-nav {
+		all: unset;
+		/*display: grid;*/
+		/*grid-template-columns: 1fr auto minmax(600px,1fr) 1fr; */
+	}
+	.site-nav a:link,
+	.site-nav a:visited{
+		opacity: 1;
+		font-weight: bold;
+	}
+
+	.site-nav ul{
+		display: flex;
+		justify-content: center;
+	}
+	.site-nav li,
+	.site-nav li:first-child{
+		margin: 0;
+	}
+
+	.site-nav li a:link,
+	.site-nav li a:visited{
+		padding: 10px 19px;
+		/*border: 1px solid red;*/
+		/*margin-right: 3em;*/
+	}
+	.site-nav ul li.current-menu-item a:link,
+	.site-nav ul li.current-menu-item a:visited
+	{
+		background-color: #006ec3;;
+		color: white;
+	}
+
+}
+/*end of Navigation*/
+body {
+
+	margin: 0px;
+}
+
+
+/*this controls the contain paragraph styling*/
+p{
+	font-family: Arial, sans-serif;
+	font-size: 14px;
+	color: #333;
+	line-height: 1.65em;
+}
+
+/*the below code is for individual pages under page.php*/
+/* Page Design */
+.page-title{
+	font-size: 200%;
+}
