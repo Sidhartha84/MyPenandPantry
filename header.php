@@ -9,18 +9,19 @@
 <body <?php body_class(); ?>>
 	<!-- site-Header-->
 	<header class="site-Header">
+	<!-- 	<img src="<?php //echo wp_get_attachment_url(get_theme_mod('MyPP_Header_back_image')) ?>"> -->
 		<h1><a href="<?php echo home_url(); ?>"> <?php bloginfo('name'); ?> </a></h1>
 		<h5><?php bloginfo('description') ?></h5>
 		
-		<nav class="social-nav">
+<!-- 		<nav class="social-nav">
 
 		<?php 
-		$args = array('theme_location' => 'social-bar');
+		// $args = array('theme_location' => 'social-bar');
 		?> 
 
-		<?php wp_nav_menu( $args ); ?>
+		<?php // wp_nav_menu( $args ); ?>
 		</nav>
-
+ -->
 		<div class="site-nav-container">
 			<input type="checkbox" id="nav-toggle" class="nav-toggle" name="nav-toggle">
 			<!-- navigation bar -->
@@ -37,6 +38,11 @@
 			<label for="nav-toggle" class="nav-toggle-label">
 				<span></span>
 			</label>
+		</div>
+
+		<!-- site-header social icon location -->
+		<div class="header-social-container">
+			<?php dynamic_sidebar('sidebar1'); ?>
 		</div>
 	</header>
 	<!-- /site-Header-->

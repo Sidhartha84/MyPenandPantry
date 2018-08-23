@@ -34,6 +34,7 @@ a:visited{
 	width: 100%;
 	left: 0;
 	top: 0;
+	
 	/*border: 2px solid red;*/
 }
 
@@ -54,7 +55,7 @@ a:visited{
 	top: 40%;
 	left: 0;
 	margin-left: 10px;
-	color: #BBB;
+	color: var(--background);
 }
 
 /*this contains the navigation menus like home blogs etc in it*/
@@ -170,20 +171,25 @@ div.site-nav-container
 	transition: opacity 250ms ease-in-out 250ms;
 }
 
+/*social icon container*/
+.header-social-container{
+	display: none;
+}
+
 /*the below code is used to make the site responsive */
 /*the below code is what shows when the window is in the full width*/
 @media screen and (min-width: 800px){
 
-	nav.social-nav{
+/*	nav.social-nav{
 		position: absolute;
 		top: 15%;
 		right: 0;
-	}
+	}*/
 
-	nav.social-nav ul{
+/*	nav.social-nav ul{
 		display: flex;
 		list-style: none;
-	}
+	}*/
 	div.container{
 		top: 0px;
 	}
@@ -238,6 +244,14 @@ div.site-nav-container
 		color: white;
 	}
 
+	.header-social-container{
+		display: block;
+		position: absolute;
+		right: 0;
+		margin-right: 8px;
+		top: 20%;
+	}
+
 }
 /*end of Navigation*/
 body {
@@ -258,4 +272,8 @@ p{
 /* Page Design */
 .page-title{
 	font-size: 200%;
+}
+
+img{
+	width: 100%;
 }
