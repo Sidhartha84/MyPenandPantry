@@ -48,8 +48,8 @@ function MyPenandPantry_Header_bckgrnd_callout($wp_customize){
 			'label' => 'Image',
 			'section' => 'MyPP_Header_Bckgrnd_callout_section',
 			'settings' => 'MyPP_Header_back_image',
-			'width'=> 50,
-			'height'=> 10
+			'width'=> 920,
+			'height'=> 210
 	)));
 }
 
