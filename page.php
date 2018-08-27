@@ -1,3 +1,5 @@
+<!-- this file controls the view of each page -->
+
 <?php
 get_header();
 ?>

@@ -30,7 +30,11 @@ function MyPenandPantry_setup(){
 
 	//Add feature Image support
 	add_theme_support('post-thumbnails');
-	add_image_size('banner_thumbnail',920,210,true);//true for hard crop false for soft crop
+	add_image_size('banner_thumbnail',920,210,true);
+	add_image_size('image_slider_thumbnail',1000,400,true); //true for hard crop false for soft crop
+
+	//Add post format support
+	add_theme_support('post-formats', array('image','gallery','chat','aside','link'));
 }
 
 add_action('after_setup_theme','MyPenandPantry_setup');

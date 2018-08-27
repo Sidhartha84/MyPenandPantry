@@ -1,3 +1,4 @@
+<!-- this file controls the view of each post page-->
 <?php
 get_header();
 ?>
@@ -9,7 +10,7 @@ if (have_posts()):
 ?>
 
 <article class="posts">
-	<h2><a href="<?php the_permalink(); ?>"> <?php the_title(); ?></a></h2>
+	<h2> <?php the_title(); ?> </h2>
 	<div class="post-meta-info">
 		<p class="post-date"> <?php the_date('F jS, Y'); ?></p>
 		<p class="post-author"> by <b><?php the_author(); ?></b></p>
