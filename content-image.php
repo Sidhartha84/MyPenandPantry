@@ -12,39 +12,36 @@
 	 <p>Change image every 2 seconds:</p> -->
 
 	 <div class="slideshow-container">
+	 	<?php
+	 	 if ($latestposts):
+	 	 	foreach ($latestposts as $post) : setup_postdata($post);
+	 	 		$num=$num+1;
+	 	?>
+	 			<div class="mySlides fade">
+	 	  			<!-- <div class="numbertext"><?php //echo $num ?> / 3</div> -->
+	 	  			<?php the_post_thumbnail('image_slider_thumbnail'); ?>
+	 	  			<div class="text"><?php the_title(); ?></div>
+
+	 	  			<div class="image-slider-description">
+	 	  				<?php if ($post->post_excerpt) {
+	 	  				?>
+	 	  					<p><?php echo get_the_excerpt(); ?></p>
+	 	  				<?php
+	 	  				}
+	 	  				?>
+	 	  			</div>
+	 			</div>
+	 			<!-- <h3><?php //the_title(); ?></h3> -->
+
+	 	<?php 
+	 		endforeach;
+	 	endif; 
+	 	wp_reset_postdata();
+	 	?>
 
 
-	<?php
-	 if ($latestposts):
-	 	foreach ($latestposts as $post) : setup_postdata($post);
-	 		$num=$num+1;
-	?>
-			<div class="mySlides fade">
-	  			<!-- <div class="numbertext"><?php //echo $num ?> / 3</div> -->
-	  			<?php the_post_thumbnail('image_slider_thumbnail'); ?>
-	  			<div class="text"><?php the_title(); ?></div>
-
-	  			<div class="image-slider-description">
-	  				<?php if ($post->post_excerpt) {
-	  				?>
-	  					<p><?php echo get_the_excerpt(); ?></p>
-	  				<?php
-	  				}
-	  				?>
-	  			</div>
-			</div>
-			<!-- <h3><?php //the_title(); ?></h3> -->
-
-	<?php 
-		endforeach;
-	endif; 
-	wp_reset_postdata();
-	?>
-
-
-	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-	<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
+	 	<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+	 	<a class="next" onclick="plusSlides(1)">&#10095;</a>
 	</div>
 	<!-- <br> -->
 
@@ -80,7 +77,7 @@
 	    }
 	    slides[slideIndex-1].style.display = "block";  
 	    dots[slideIndex-1].className += " active";
-	    setTimeout(showSlides_Transition, 5000); // Change image every 2 seconds
+	    setTimeout(showSlides_Transition, 10000); // Change image every 2 seconds
 	}
 
 	function showSlides(n) {
